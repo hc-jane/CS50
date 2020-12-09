@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+
+int coins, remaining, c;
+float a;
+
+float check(int n, int i, int p)
+{
+    if(remaining >=n)
+    {
+        for (i=1; remaining >= n*i; i++)
+        {
+            coins ++;
+            p ++;
+        }
+        
+        remaining = remaining - p*n;
+        
+    }
+ return 0;   
+}
+
+int main(void)
+{   
+    do
+	{
+		printf("What is the change?\n");
+		scanf("%f", &a);
+	
+	}
+	while (a <=0);
+
+    remaining = round(a*100);
+    check(25,0, 0);
+    check(10,0, 0);
+    check(5,0,0);
+    int result = remaining + coins;
+    printf("%i\n", result);
+    return 0;
+}
+
+
+
+
